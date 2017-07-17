@@ -35,5 +35,24 @@ namespace Animals.Tests
             _doge.SetSpecies("Carolina Labrador");                  // checking a side effect in testing is fine
             Assert.Equal(_doge.Species, "Carolina Labrador");
         }
+
+        [Fact]
+        public void HaveWalkingSpeedSetWithWalkMethod()
+        {
+            _animal.Walk(30);
+
+            Assert.Equal(_animal.WalkingSpeed, 30);
+
+            _doge.Walk(0.75);
+
+            Assert.Equal(_doge.WalkingSpeed, 0.75);
+        }
+
+        [Fact]
+        public void InstanceShouldBeOfCorrectType()
+        {
+            Assert.IsType<Animal>(_animal);
+            Assert.IsType<Dog>(_doge);
+        }
     }
 }
